@@ -5,21 +5,21 @@ Feature: Add to cart
   I want to add items in my cart
   To place be my order
 
-  @tmp
   Scenario: Add a unit to cart
     Given that the product is 'Cup Cake'
     And the price is 'R$ 8,70'
-    When I add a unit
-    Then 1 item must be added to the cart
+    When I add 1 item(s) this product
+    And 1 item(s) must be added to the cart
     And the total amount must be 'R$ 8,70'
 
   Scenario: Add two units to cart
     Given that the product is 'Donut'
     And the price is 'R$ 2,50'
-    When I add two units
-    Then two units of this item must be added to the cart
+    When I add 2 item(s) this product
+    Then 2 item(s) must be added to the cart
     And the total amount must be 'R$ 5,00'
 
+  @tmp
   Scenario: Add multipe products to cart
     Given that the products desireds are:
       | product                | price    |
