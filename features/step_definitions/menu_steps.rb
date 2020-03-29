@@ -1,3 +1,7 @@
+When('I select the restaurant {string}') do |restaurant|
+  find('.restaurant-item', text: restaurant.upcase).click
+end
+
 Then('I see the following products available on the restaurant menu {string}:') do |restaurant, products_data|
   click_link('Restaurantes')
   find('.restaurant-item', text: restaurant.upcase).click

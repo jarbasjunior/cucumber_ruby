@@ -38,7 +38,7 @@ Feature: Menu
       | Tasty Treats | Bolo de Morango          | Bolo recheado e coberto com morangos | R$ 40,50 |
       | Tasty Treats | Fatia de Bolo            | Fatia de bolo de morango             | R$ 5,90  |
 
-  @menu
   Scenario: Empty cart
     Given I access the list of restaurants
+    When I select the restaurant 'Bread & Bakery'
     Then I see the message 'Seu carrinho está vazio'
