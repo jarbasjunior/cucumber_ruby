@@ -19,13 +19,12 @@ Feature: Add to cart
     Then 2 item(s) must be added to the cart
     And the total amount must be 'R$ 5,00'
 
-  @tmp
   Scenario: Add multipe products to cart
     Given that the products desireds are:
-      | product                | price    |
-      | Cup Cake               | R$ 8,70  |
-      | Donut                  | R$ 2,50  |
-      | Pão Artesanal Italiano | R$ 15,90 |
+      | product                | price    | quantity |
+      | Cup Cake               | R$ 8,70  | 2        |
+      | Donut                  | R$ 2,50  | 3        |
+      | Pão Artesanal Italiano | R$ 15,90 | 2        |
     When I add all items
     Then I see all items to the cart
-    And the total amount must be 'R$ 27,10'
+    And the total amount must be 'R$ 56,70'
