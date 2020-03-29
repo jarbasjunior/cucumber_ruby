@@ -37,3 +37,8 @@ Feature: Menu
       | Tasty Treats | Cup Cake de Choc. Branco | Cup Cake de chocolate branco         | R$ 5,50  |
       | Tasty Treats | Bolo de Morango          | Bolo recheado e coberto com morangos | R$ 40,50 |
       | Tasty Treats | Fatia de Bolo            | Fatia de bolo de morango             | R$ 5,90  |
+
+  @menu
+  Scenario: Empty cart
+    Given I access the list of restaurants
+    Then I see the message 'Seu carrinho está vazio'
