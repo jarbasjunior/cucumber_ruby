@@ -52,13 +52,9 @@ end
 
 Given('that I have the following products in the cart') do |table|
   @product_list = table.hashes
-  @product_list.each do |p|
-    p[:quantity].to_i.times do
-      find('.menu-item-info-box', text: p[:product].upcase).find('.add-to-cart').click
-      message = find('.snackbar').text
-      expect(message).to eql "Você adicionou o item #{p[:product]}"
-    end
-  end
+  steps %(
+    When I add all items
+  )
 end
 
 When('I remove only the {int}') do |item|
@@ -70,10 +66,16 @@ end
 
 Given('I remove all items') do
   @product_list.each do |p|
-    find(:xpath, "//th[contains(.,'#{p[:product]}')]/..//i").click
-    message = find('.snackbar')
-    expect(message.text).to eql "Você removeu o item #{p[:product]}"
+    p[:quantity].to_i.times do
+      find(:xpath, "//th[contains(.,'#{p[:product]}')]/..//i").click
+      message = find('.snackbar')
+      expect(message.text).to eql "Você removeu o item #{p[:product]}"
+    end
   end
+end
+
+Given('I clean the cart') do
+  click_button('Limpar')
 end
 
 Then('I see the message {string}') do |message|

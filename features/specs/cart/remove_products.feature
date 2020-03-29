@@ -1,4 +1,4 @@
-@bread_bakery
+@bread_bakery @tmp
 Feature: Remove to cart
 
   As a user
@@ -23,4 +23,8 @@ Feature: Remove to cart
 
   Scenario: Remove all items from the cart
     Given I remove all items
+    Then I see the message 'Seu carrinho está vazio'
+
+  Scenario: Clean cart
+    Given I clean the cart
     Then I see the message 'Seu carrinho está vazio'
