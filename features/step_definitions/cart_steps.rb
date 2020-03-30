@@ -8,7 +8,7 @@ end
 
 When('I add {int} item\(s) this product') do |quantity|
   quantity.times do
-    find('.menu-item-info-box', text: @product.upcase).find('.add-to-cart').click
+    @menu_page.add_item_cart(@product)
     expect(@menu_page.text_message_cart).to eql "Você adicionou o item #{@product}"
   end
 end
@@ -23,7 +23,7 @@ end
 
 # list of products
 
-Given('that the products desireds are:') do |table|
+Given('that the products desireds are') do |table|
   @product_list = table.hashes
 end
 

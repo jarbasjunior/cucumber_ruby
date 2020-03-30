@@ -1,4 +1,4 @@
-@bread_bakery @tmp
+@bread_bakery
 Feature: Remove to cart
 
   As a user

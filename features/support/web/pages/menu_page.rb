@@ -16,4 +16,8 @@ class MenuPage
   def text_message_cart
     find('.snackbar').text
   end
+
+  def add_item_cart(product)
+    find('.menu-item-info-box', text: product.upcase).find('.add-to-cart').click
+  end
 end
