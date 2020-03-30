@@ -4,7 +4,6 @@ Feature: Details about store in the menu
   Wish I to see details about store
   To let me know about its category, detailed description and opening hours him
 
-  @info
   Scenario: Details restaurant
     Given I access the list of restaurants
     Then I see the following restaurant information 'Bread & Bakery':

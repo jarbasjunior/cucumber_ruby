@@ -15,7 +15,7 @@ end
 
 Then('I see the following restaurant information {string}:') do |restaurant, table|
   click_link('Restaurantes')
-  find('.restaurant-item', text: restaurant.upcase).click
+  @restaurant_page.select_restaurant(restaurant)
   details = find('#detail')
   infos = table.rows_hash
   expect(details).to have_text infos[:category]
