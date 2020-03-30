@@ -1,5 +1,5 @@
 When('I access the list of restaurants') do
-  visit '/restaurants'
+  @restaurant_page.load
 end
 
 Given('that we have the following restaurants') do |restaurants_data|

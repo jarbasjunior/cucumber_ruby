@@ -8,4 +8,8 @@ class RestaurantPage
   def list_all_restaurants
     all('.restaurant-item')
   end
+
+  def load
+    visit '/restaurants'
+  end
 end
