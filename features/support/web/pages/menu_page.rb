@@ -32,4 +32,8 @@ class MenuPage
   def clean_cart
     click_button('Limpar')
   end
+
+  def finalize_order
+    click_link('Fechar Pedido')
+  end
 end

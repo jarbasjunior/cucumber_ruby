@@ -72,3 +72,29 @@ end
 Then('I see the message {string}') do |message|
   expect(@menu_page.box_cart).to have_text message
 end
+
+Given('that I Added the following products in the cart') do |table|
+  @product_list = table.hashes
+  @product_list.each do |p|
+    p[:quantity].to_i.times do
+      @menu_page.add_item_cart(p[:name])
+      expect(@menu_page.text_message_cart).to eql "Você adicionou o item #{p[:name]}"
+    end
+  end
+end
+
+When('I finalize my order') do
+  @menu_page.finalize_order
+end
+
+Then('the total value of the items must be {string}') do |total_items|
+  expect(@order_page.total_items.text).to eql total_items
+end
+
+Then('the value freightage must be {string}') do |total_freightage|
+  expect(@order_page.total_freightage.text).to eql total_freightage
+end
+
+Then('the total order amount must be {string}') do |total_order|
+  expect(@order_page.total_order.text).to eql total_order
+end
