@@ -1,3 +1,6 @@
+AllCops:
+  DisabledByDefault: true
+
 Style/Documentation:
   Enabled: false
 
@@ -7,8 +10,17 @@ Style/FrozenStringLiteralComment:
 Style/ClassAndModuleChildren:
   Enabled: false
 
-Metrics/LineLength:
-  Max: 225
+Style/HashEachMethods:
+    Enabled: false
+  
+Style/HashTransformKeys:
+    Enabled: false
+  
+Style/HashTransformValues:
+    Enabled: false
+
+Layout/LineLength:
+  Max: 250
 
 Metrics/MethodLength:
   Max: 30
