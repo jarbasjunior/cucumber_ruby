@@ -4,7 +4,7 @@ end
 
 Then('I see the following products available on the restaurant menu {string}:') do |restaurant, products_data|
   click_link('Restaurantes')
-  find('.restaurant-item', text: restaurant.upcase).click
+  @restaurant_page.select_restaurant(restaurant)
   products_data.hashes.each_with_index do |product, index|
     products_listing = all('.menu-item-info-box')
     expect(products_listing[index]).to have_text product[:product].upcase
