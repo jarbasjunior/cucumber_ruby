@@ -1,4 +1,4 @@
-@bread_bakery @tmp
+@bread_bakery
 Feature: Remove to cart
 
   As a user
@@ -13,13 +13,13 @@ Feature: Remove to cart
       | Pão Artesanal Italiano | R$ 15,90 | 1        |
 
   Scenario Outline: Remove item
-    When I remove only the <item>
+    When I remove only the <product>
     Then the total amount must be <amount>
     Examples:
-    | item | amount   |
-    | 0    | 'R$ 18,40' |
-    | 1    | 'R$ 24,60' |
-    | 2    | 'R$ 11,20' |
+      | product                  | amount     |
+      | 'Cup Cake'               | 'R$ 18,40' |
+      | 'Donut'                  | 'R$ 24,60' |
+      | 'Pão Artesanal Italiano' | 'R$ 11,20' |
 
   Scenario: Remove all items from the cart
     Given I remove all items

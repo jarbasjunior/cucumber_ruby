@@ -4,7 +4,6 @@ Feature: Menu
   Wish I access the menu of the restaurant
   For I to see which are food options
 
-  @menu
   Scenario: Product listing
     Given I access the list of restaurants
     Then I see the following products available on the restaurant menu 'Bread & Bakery':

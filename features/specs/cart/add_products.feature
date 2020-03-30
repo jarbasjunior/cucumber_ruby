@@ -20,7 +20,7 @@ Feature: Add to cart
     And the total amount must be 'R$ 5,00'
 
   Scenario: Add multipe products to cart
-    Given that the products desireds are:
+    Given that the products desireds are
       | product                | price    | quantity |
       | Cup Cake               | R$ 8,70  | 2        |
       | Donut                  | R$ 2,50  | 3        |
