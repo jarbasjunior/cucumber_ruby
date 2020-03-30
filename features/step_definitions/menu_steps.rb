@@ -1,24 +1,22 @@
 When('I select the restaurant {string}') do |restaurant|
-  find('.restaurant-item', text: restaurant.upcase).click
+  @restaurant_page.select_restaurant(restaurant)
 end
 
 Then('I see the following products available on the restaurant menu {string}:') do |restaurant, products_data|
-  click_link('Restaurantes')
+  @navbar_page.go_to('Restaurantes')
   @restaurant_page.select_restaurant(restaurant)
   products_data.hashes.each_with_index do |product, index|
-    products_listing = all('.menu-item-info-box')
-    expect(products_listing[index]).to have_text product[:product].upcase
-    expect(products_listing[index]).to have_text product[:description]
-    expect(products_listing[index]).to have_text product[:price]
+    expect(@menu_page.list_all_products[index]).to have_text product[:product].upcase
+    expect(@menu_page.list_all_products[index]).to have_text product[:description]
+    expect(@menu_page.list_all_products[index]).to have_text product[:price]
   end
 end
 
 Then('I see the following restaurant information {string}:') do |restaurant, table|
-  click_link('Restaurantes')
+  @navbar_page.go_to('Restaurantes')
   @restaurant_page.select_restaurant(restaurant)
-  details = find('#detail')
   infos = table.rows_hash
-  expect(details).to have_text infos[:category]
-  expect(details).to have_text infos[:description]
-  expect(details).to have_text infos[:opening_hours]
+  expect(@menu_page.restaurant_details).to have_text infos[:category]
+  expect(@menu_page.restaurant_details).to have_text infos[:description]
+  expect(@menu_page.restaurant_details).to have_text infos[:opening_hours]
 end

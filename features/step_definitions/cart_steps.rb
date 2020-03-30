@@ -30,7 +30,7 @@ end
 When('I add all items') do
   @product_list.each do |p|
     p[:quantity].to_i.times do
-      find('.menu-item-info-box', text: p[:product].upcase).find('.add-to-cart').click
+      @menu_page.add_item_cart(p[:product])
       expect(@menu_page.text_message_cart).to eql "Você adicionou o item #{p[:product]}"
     end
   end
@@ -66,7 +66,7 @@ Given('I remove all items') do
 end
 
 Given('I clean the cart') do
-  click_button('Limpar')
+  @menu_page.clean_cart
 end
 
 Then('I see the message {string}') do |message|

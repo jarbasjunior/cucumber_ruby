@@ -4,7 +4,6 @@ Feature: Restaurants
   Being a user who wants to order food
   I can to access the list of restaurants
 
-  @restaurant
   Scenario: Available restaurants
     Given that we have the following restaurants
       | name           | category   | delivery_time | rating |

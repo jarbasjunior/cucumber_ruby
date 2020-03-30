@@ -7,11 +7,10 @@ Given('that we have the following restaurants') do |restaurants_data|
 end
 
 Then('I see all restaurants of the list') do
-  restaurants = all('.restaurant-item')
   @restaurants_data.each_with_index do |restaurant, index|
-    expect(restaurants[index]).to have_text restaurant[:name].upcase
-    expect(restaurants[index]).to have_text restaurant[:category]
-    expect(restaurants[index]).to have_text restaurant[:dellivery_time]
-    expect(restaurants[index]).to have_text restaurant[:rating]
+    expect(@restaurant_page.list_all_restaurants[index]).to have_text restaurant[:name].upcase
+    expect(@restaurant_page.list_all_restaurants[index]).to have_text restaurant[:category]
+    expect(@restaurant_page.list_all_restaurants[index]).to have_text restaurant[:dellivery_time]
+    expect(@restaurant_page.list_all_restaurants[index]).to have_text restaurant[:rating]
   end
 end
