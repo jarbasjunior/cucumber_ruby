@@ -1,0 +1,5 @@
+---
+  default: -p html -p bdd
+  bdd: --format pretty
+  progress: --format progress
+  html: --format html --out=log/report.html
