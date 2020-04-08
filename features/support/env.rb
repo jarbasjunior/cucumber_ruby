@@ -3,19 +3,21 @@ require 'capybara'
 require 'capybara/cucumber'
 require 'selenium-webdriver'
 
-# Rspec.configure do |config|
-#   config.before(:example) do
-#     page.current_window.resize_to(1280, 800)
-#   end
-
-#   config.after(:example) do |e|
-#     scenario = e.description.gsub(/[^A-Za-z0-9 ]/, '').tr(' ', '_').downcase!
-#     page.save_screenshot('log/' + scenario + '.png') if e.exception
-#   end
-# end
+@browser = ENV['BROWSER']
 
 Capybara.configure do |config|
-  config.default_driver = :selenium_chrome
+  case @browser
+  when 'chrome'
+    @driver = :selenium_chrome
+  when 'firefox'
+    @driver = :selenium
+  when 'chrome_headless'
+    @driver = :selenium_chrome_headless 
+  when 'firefox_headless'
+    @driver = :selenium_headless
+  end
+
+  config.default_driver = @driver
   config.app_host = 'http://localhost:3000'
   config.default_max_wait_time = 5
 end
