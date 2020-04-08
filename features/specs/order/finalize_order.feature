@@ -5,7 +5,6 @@ Feature: Finalize Order
   I want finalize my order
   For receive my items at my house
 
-  @tmp
   Scenario: Checkout with meal card
     Given that I finalized my order with the following products
       | quantity | name                | description                             | subtotal |
